@@ -37,6 +37,11 @@ class CacheHelper {
     // return await sharedPreferences?.setDouble(key, value);
   }
 
+  static Future<bool?> saveLocation(String key, String location) async {
+    if (location is String)
+      return await sharedPreferences?.setString(key, location);
+  }
+
   static Future<bool?> removeData(@required String key) async {
     return await sharedPreferences?.remove(key);
   }

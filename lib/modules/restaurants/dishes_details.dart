@@ -86,7 +86,7 @@ class dishe_details extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           detailsText(
-                              text: number.toString(),
+                              text: "${number.toString()} ل.س ",
                               style: Theme.of(context).textTheme.labelMedium),
                           detailsText(
                               text: ' السعر' ' : ',

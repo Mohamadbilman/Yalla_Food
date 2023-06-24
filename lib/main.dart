@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'modules/on_boarding/cubit/cubit.dart';
 import 'modules/on_boarding/on_boarding_screen.dart';
-
 void main() {
   BlocOverrides.runZoned(() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +28,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp(this.startWidget);
-
   final Widget startWidget;
 
   @override

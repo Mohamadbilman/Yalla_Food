@@ -45,6 +45,7 @@ class Yalla_Food_Cubit extends Cubit<Yalla_Food_States> {
   Future<void> sendWhatsAppMessage(
       {required String number, required String message}) async {
     final whatsappUrl = 'https://wa.me/$number?text=${Uri.encodeFull(message)}';
+
     if (await canLaunch(whatsappUrl)) {
       await launch(whatsappUrl);
     } else {
@@ -70,7 +71,7 @@ class Yalla_Food_Cubit extends Cubit<Yalla_Food_States> {
     required bool type,
     required String number,
   }) async {
-    CacheHelper.saveFavData(
+    await CacheHelper.saveFavData(
             '${value}favorite', value, image, desc, add, price, type)
         .then((val) {
       favTitle.add(value);
@@ -94,9 +95,20 @@ class Yalla_Food_Cubit extends Cubit<Yalla_Food_States> {
     });
   }
 
+  String locationn = "";
+
+  Future<void> saveLocation({required String location}) async {
+    await CacheHelper.saveLocation("Location", location).then((value) {
+      locationn = location;
+    });
+    print(location);
+    print(locationn.toString());
+  }
+
   void deleteFav({
     required int index,
   }) {
+    locationn = "";
     favTitle.removeAt(index);
     favdesc.removeAt(index);
     favimage.removeAt(index);
@@ -105,6 +117,11 @@ class Yalla_Food_Cubit extends Cubit<Yalla_Food_States> {
     emit(removedFromFav());
 
     print(favs);
+    print(locationn);
+  }
+
+  void getLocation() {
+    CacheHelper.getData('location');
   }
 
   void getFav() {

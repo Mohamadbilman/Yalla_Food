@@ -199,7 +199,7 @@ Widget defaultFormField(context,
       validator: validator,
       decoration: InputDecoration(
         contentPadding:
-            const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+            const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
         hintText: hintText,
         hintTextDirection: TextDirection.rtl,
         prefix: prefix,
@@ -215,8 +215,7 @@ Widget defaultFormField(context,
         enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(width: 3, color: Colors.black),
             borderRadius: BorderRadius.circular(30)),
-        errorStyle:
-            const TextStyle(backgroundColor: Colors.black, color: Colors.red),
+        errorStyle: const TextStyle(color: Colors.red),
         errorBorder: OutlineInputBorder(
             borderSide:
                 BorderSide(width: 3, color: Theme.of(context).errorColor),
